@@ -1,0 +1,42 @@
+#canvas {
+    background-color: blueviolet;
+}
+.samp {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background-color: royalblue;
+}
+canvas, nav, aside {
+    box-sizing: border-box;
+    width: 100px;
+    padding: 10px;
+}
+aside h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+nav > button {
+    padding: 12px 24px;
+    background-color: sandybrown;
+    color: seashell;
+}
+#stop + button {
+    margin: 1rem;
+}
+#stop ~ button {
+    margin: 1rem;
+}
+button[type="reset"] {
+    border: dashed 6px blue;
+}
+button:first-child {
+    margin: 1rem;
+}
+tr:first-child {
+    background-color: rebeccapurple
+}
+
+th:lang(english) {
+    background-color: blue;
+}

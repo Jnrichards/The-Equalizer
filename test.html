@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/apprun@latest/dist/apprun-html.js"></script>
+        <style>
+            section {
+                width: 88px;
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                grid-template-rows: auto auto auto auto;
+            }
+            samp {
+                margin: 2px;
+                height: 50px;
+                width: 50px;
+            }
+            samp.off {
+                background-color: gray;
+            }
+            samp.on {
+                background-color: hotpink;
+            }
+        </style>
+    </head>
+    <body>
+        <main id="main"></main>
+        <script>
+            const state = {
+                grid: [
+                    [null, null, null, null],
+                    [null, null, null, null],
+                    [null, null, null, null],
+                    [null, null, null, null]
+                ]
+            }
+            const view = state => {
+                return `
+                    <section>
+                        ${state.grid.map((row, row_i) => {
+                            return row.map((pad, pad_i) => {
+                                return `<samp class="${pad ? "on" : "off"}" onclick="app.run('toggle', ${row_i}, ${pad_i})"></samp>`
+                            }).join("")
+                        }).join("")}
+                    </section>
+                `
+            }
+            const update = {
+                toggle: (state, row, pad) => {
+                    state.grid[row][pad] 
+                        ? state.grid[row][pad] = null 
+                        : state.grid[row][pad] = "-"
+                    return state
+                }
+            }
+            app.start('main', state, view, update)
+        </script>
+    </body>
+</html>
